@@ -1,0 +1,8 @@
+{
+    "name": "Urltransfer",
+    "version": "0.0.1",
+    "description": "Generate a qcode for a url",
+    "browser_action": {
+        "default_icon": "icon.gif"
+    }
+}
