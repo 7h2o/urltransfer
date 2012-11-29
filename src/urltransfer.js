@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
 	var charUrl = 'https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chld=L|1&chs=200x200&chl=';
 	
 	var generateQrCode = function(){
@@ -17,7 +17,7 @@ $(document).ready(function(){
 		return false;
 	});
 	
-	$("#mini_btn_id").bind('click', function(){
+	$("#mini_btn_id").bind('click', function() {
 		var textareaHeight = $('#target_id').height();
 		console.log(textareaHeight);
 		
@@ -32,12 +32,16 @@ $(document).ready(function(){
 		return false;
 	});
 	
-	$("#history_btn_id").bind('click', function(){
+	$("#history_btn_id").bind('click', function() {
 		return false;
 	});
 	
-	$("#current_btn_id").bind('click', function(){
-		$('#target_id').val(window.location.href);
+	$("#current_btn_id").bind('click', function() {
+		chrome.tabs.getSelected(null, function(tab) {
+			//chrome.tabs.update(tab.id, {url:newUrl});
+			//console.log(tab.url);
+			$('#target_id').val(tab.url);
+		});
 		return false;
 	});
 });
