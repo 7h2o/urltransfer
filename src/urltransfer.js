@@ -5,13 +5,16 @@ $(document).ready(function(){
 		var content = $('#target_id').val();
 		console.log(content);
 		if(content.length == 0)
-			return;
+			return false;
 		var imgDiv = '<img src="' + charUrl + content + '"width="200" height="200" style="border:solid #eeeeee 1px;padding:2px;"/>';
 		$('#qrcode_container').empty().append(imgDiv);
+		return true;
 	}
 	
 	$("#ok_btn_id").bind('click', function() {
-		generateQrCode();
+		if(generateQrCode())
+			$("#info_div_id").show();
+		return false;
 	});
 	
 	$("#mini_btn_id").bind('click', function(){
