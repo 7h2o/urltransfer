@@ -32,4 +32,9 @@ $(document).ready(function(){
 	$("#history_btn_id").bind('click', function(){
 		return false;
 	});
+	
+	$("#current_btn_id").bind('click', function(){
+		$('#target_id').val(window.location.href);
+		return false;
+	});
 });

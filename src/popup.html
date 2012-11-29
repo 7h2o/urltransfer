@@ -3,6 +3,11 @@
   <head>
     <title>urltransfer - transfer url to your smart phone</title>
 	<meta charset="UTF-8">
+	<style>
+		.ut_btn_group a{
+			text-decoration:none;
+		}
+	</style>
 	<link href="skin.css" rel="stylesheet">
     <!-- JavaScript and HTML must be in separate files for security. -->
     <script src="jquery.min.js"></script>
@@ -11,8 +16,11 @@
   <body>
 	<textarea id="target_id" placeholder="网址或者简短的话" style="font-size:14px;width:340px;height:120px;margin:10px;"></textarea>
 	<input id="ok_btn_id" type="button" class="btn btn-primary" value="确定" style="margin-left:10px;margin-bottom:10px;"/>
-	<a id="mini_btn_id" href="" style="float:right;margin-right:10px;margin-bottom:10px;" class="btn">MINI</a>
-	<a id="history_btn_id" href="" style="float:right;margin-right:10px;margin-bottom:10px;" class="btn">历史</a>
+	<span class="ut_btn_group" style="float:right;">
+		<a id="mini_btn_id" href="" style="margin-right:5px;margin-bottom:10px;" class="btn">MINI</a>
+		<a id="history_btn_id" href="" style="margin-right:5px;margin-bottom:10px;" class="btn">历史</a>
+		<a id="current_btn_id" href="" style="margin-right:5px;margin-bottom:10px;" class="btn">当前地址</a>
+	</span>
 	<div id="qrcode_container">
 	</div>
   </body>
