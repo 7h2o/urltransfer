@@ -10,8 +10,10 @@
 	</style>
 	<link href="skin.css" rel="stylesheet">
     <!-- JavaScript and HTML must be in separate files for security. -->
-    <script src="jquery.min.js"></script>
-	<script src="urltransfer.js"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.qrcode.js"></script>
+    <script type="text/javascript" src="qrcode.js"></script>
+	<script type="text/javascript" src="urltransfer.js"></script>
   </head>
   <body>
 	<textarea id="target_id" placeholder="网址或者简短的话" style="font-size:14px;width:340px;height:20px;margin:10px;"></textarea>
@@ -23,6 +25,8 @@
 	</span>
 	<div id="info_div_id" style="display:none;">
 		<div id="qrcode_container" style="width:220px;height:220px;float:left;margin-left:10px;">
+            <div id="qrcode_canvas" style="width:200px;height:200px;border:1px solid #EEEEEE;padding:2px;">
+            </div>
 		</div>
 		<div style="width:140px;float:right;font-size:13px;">
 			安装二维码扫描软件

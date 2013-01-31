@@ -1,15 +1,41 @@
 $(document).ready(function() {
-	var charUrl = 'https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chld=L|1&chs=200x200&chl=';
-	
-	var generateQrCode = function(){
-		var content = $('#target_id').val();
-		console.log(content);
-		if(content.length == 0)
-			return false;
-		var imgDiv = '<img src="' + charUrl + content + '"width="200" height="200" style="border:solid #eeeeee 1px;padding:2px;"/>';
-		$('#qrcode_container').empty().append(imgDiv);
-		return true;
-	}
+    var utf16to8 = function(str) {
+        var out, i, len, c;
+        out = "";
+        len = str.length;
+        for(i = 0; i < len; i++) {
+            c = str.charCodeAt(i);
+            if ((c >= 0x0001) && (c <= 0x007F)) {
+                out += str.charAt(i);
+            } else if (c > 0x07FF) {
+                out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));
+                out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));
+            } else {
+                out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));
+                out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));
+            }
+        }
+        return out;
+    }	
+
+    var generateQrCode = function() {
+        var content = $('#target_id').val();
+        console.log(content);
+        if(content.length == 0) {
+            return false;
+        }
+        //var imgDiv = '<img src="' + charUrl + content + '"width="200" height="200" style="border:solid #eeeeee 1px;padding:2px;"/>';
+        $("#qrcode_canvas").empty();
+        $("#qrcode_canvas").qrcode({
+            width : 198,
+            height : 198,
+            text : utf16to8(content)
+        });
+
+        //$('#qrcode_container').empty().append(imgDiv);
+        return true;
+    }
 	
 	$("#ok_btn_id").bind('click', function() {
 		if(generateQrCode())
