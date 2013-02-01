@@ -1,19 +1,19 @@
 var lang = {};
 
 lang["en-US"] = {
-    "btn_ok_id" : "OK",
-    "btn_current_id" : "Current URL",
-    "btn_mini_id" : "MINI",
-    "btn_full_id" : "FULL",
-    "btn_history_id" : "History",
+    "ok_btn_id" : "OK",
+    "current_btn_id" : "Current URL",
+    "mini_btn_id" : "FULL",
+    "full_btn_id" : "MINI",
+    "history_btn_id" : "History",
     "target_id_placeholder" : "URL or a short passage"
 };
 
 lang["zh-CN"] = {
-    "btn_ok_id" : "确定",
-    "btn_current_id" : "当前网址",
-    "btn_mini_id" : "MINI",
-    "btn_full_id" : "FULL",
-    "btn_history_id" : "历史",
+    "ok_btn_id" : "确定",
+    "current_btn_id" : "当前网址",
+    "mini_btn_id" : "变大",
+    "full_btn_id" : "变小",
+    "history_btn_id" : "历史",
     "target_id_placeholder" : "网址或者简短的话"
 };
