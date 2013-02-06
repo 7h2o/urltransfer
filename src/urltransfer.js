@@ -8,7 +8,7 @@ $(document).ready(function() {
 
         for(var idx in replace_ids) {
             $("#" + replace_ids[idx]).empty().append(lang[language][replace_ids[idx]]);
-            console.log(lang[language][replace_ids[idx]]);
+            //console.log(lang[language][replace_ids[idx]]);
         }
 
         for(var key in replace_attr) {
@@ -41,7 +41,7 @@ $(document).ready(function() {
 
     var generateQrCode = function() {
         var content = $('#target_id').val();
-        console.log(content);
+        //console.log(content);
         if(content.length == 0) {
             return false;
         }
@@ -64,7 +64,7 @@ $(document).ready(function() {
 	
 	$("#mini_btn_id").bind('click', function() {
 		var textareaHeight = $('#target_id').height();
-		console.log(textareaHeight);
+		//console.log(textareaHeight);
 		
 		if(textareaHeight > 20) {
 			$('#target_id').height(20);
