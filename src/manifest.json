@@ -1,18 +1,20 @@
 {
-  "name": "Urltransfer",
+  "name": "QR-Transfer",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "Transfer url(or small text) to you smart phone.",
+  "options_page": "history.html",
+  "description": "Transfer url(or a short passage) to you smart phone via QR.",
   "icons": { "16": "icon16.png",
 			 "48": "icon48.png",
              "128": "icon128.png" },
   "browser_action": {
+    "default_title": "Transfer a short passage to your phone", 
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
   "permissions": [
-    "https://chart.googleapis.com/",
-	 "tabs"
+	 "tabs",
+     "unlimitedStorage"
   ]
 }
 

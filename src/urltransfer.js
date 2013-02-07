@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var language = navigator.language;
-    
+
     // Fill language to page
     var fillLanguageToPage = function() {
         var replace_ids = ["ok_btn_id", "mini_btn_id", "history_btn_id", "current_btn_id"];
@@ -55,7 +55,20 @@ $(document).ready(function() {
 
         return true;
     }
-	
+
+    var openHistory = function() {
+        try {
+            var tabs = chrome.extension.getExtensionTabs();
+            for (var i in tabs) {
+                var tab = tabs[i];
+                if (tab.location.pathname == "/history.html") {
+                    return;
+                }
+            }
+            chrome.tabs.create({url: "history.html"});
+        } catch (e) {}
+    };
+
 	$("#ok_btn_id").bind('click', function() {
 		if(generateQrCode())
 			$("#info_div_id").show();
@@ -77,14 +90,13 @@ $(document).ready(function() {
 		return false;
 	});
 	
-	$("#history_btn_id").bind('click', function() {
-		return false;
-	});
+    $("#history_btn_id").bind('click', function() {
+        //window.close();
+        openHistory();
+    });
 	
 	$("#current_btn_id").bind('click', function() {
 		chrome.tabs.getSelected(null, function(tab) {
-			//chrome.tabs.update(tab.id, {url:newUrl});
-			//console.log(tab.url);
 			$('#target_id').val(tab.url);
 		});
 		return false;
