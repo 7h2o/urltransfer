@@ -10,10 +10,15 @@
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery.qrcode.js"></script>
     <script type="text/javascript" src="qrcode.js"></script>
-    <script type="text/javascript" src="template_engine.js"></script>
-    <script type="text/javascript" src="language.js"></script>
-	<script type="text/javascript" src="urltransfer.js"></script>
+	<script type="text/javascript" src="uuid.js"></script>    
+    <script type="text/javascript" src="moment.min.js"></script>
+    <script type="text/javascript" src="history.js"></script>
+    <script type="text/javascript" src="urltransfer.history.js"></script>
   </head>
   <body>
+    <div>
+        <div><span id="loadContent">数据加载中...</span><span id="clearContent" style="cursor:pointer;display:none">清空所有历史</span></div>
+        <ul id="contentList" style="display:none"></ul>
+    </div>
   </body>
 </html>

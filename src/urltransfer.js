@@ -52,12 +52,15 @@ $(document).ready(function() {
             height : 200,
             text : utf16to8(content)
         });
+        
+        saveContent(content);
 
         return true;
     }
 
     var openHistory = function() {
         try {
+        /*
             var tabs = chrome.extension.getExtensionTabs();
             for (var i in tabs) {
                 var tab = tabs[i];
@@ -65,6 +68,7 @@ $(document).ready(function() {
                     return;
                 }
             }
+            */
             chrome.tabs.create({url: "history.html"});
         } catch (e) {}
     };
@@ -72,12 +76,13 @@ $(document).ready(function() {
 	$("#ok_btn_id").bind('click', function() {
 		if(generateQrCode())
 			$("#info_div_id").show();
+        
+        
 		return false;
 	});
 	
 	$("#mini_btn_id").bind('click', function() {
 		var textareaHeight = $('#target_id').height();
-		//console.log(textareaHeight);
 		
 		if(textareaHeight > 20) {
 			$('#target_id').height(20);
@@ -91,7 +96,6 @@ $(document).ready(function() {
 	});
 	
     $("#history_btn_id").bind('click', function() {
-        //window.close();
         openHistory();
     });
 	
